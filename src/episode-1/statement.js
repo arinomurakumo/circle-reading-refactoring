@@ -4,19 +4,16 @@ export function statement(invoice, plays) {
   let result = `Statement for ${invoice.customer}\n`
 
   for (let perf of invoice.performances) {
-    let thisAmount = amountFor(perf)
-
-    volumeCredits += volumeCreditsFor(perf)
-    // 喜劇の時は 10 人につき、さらにポイントを加算
-    if ('comedy' === playFor(perf).type)
-      volumeCredits += Math.floor(perf.audience / 5)
-
     // 注文内訳を出力
-    result += `  ${playFor(perf).name}: ${usd(thisAmount)} (${
+    result += `  ${playFor(perf).name}: ${usd(amountFor(perf))} (${
       perf.audience
     } seats)\n`
-    totalAmount += thisAmount
+    totalAmount += amountFor(perf)
   }
+  for (let perf of invoice.performances) {
+    volumeCredits += volumeCreditsFor(perf)
+  }
+
   result += `Amount owed is ${usd(totalAmount)}\n`
   result += `You earned ${volumeCredits} credits\n`
   return result
