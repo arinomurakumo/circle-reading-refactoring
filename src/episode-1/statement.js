@@ -2,11 +2,6 @@ export function statement(invoice, plays) {
   let totalAmount = 0
   let volumeCredits = 0
   let result = `Statement for ${invoice.customer}\n`
-  const format = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 2
-  }).format
 
   for (let perf of invoice.performances) {
     let thisAmount = amountFor(perf)
@@ -17,12 +12,12 @@ export function statement(invoice, plays) {
       volumeCredits += Math.floor(perf.audience / 5)
 
     // 注文内訳を出力
-    result += `  ${playFor(perf).name}: ${format(thisAmount / 100)} (${
+    result += `  ${playFor(perf).name}: ${usd(thisAmount)} (${
       perf.audience
     } seats)\n`
     totalAmount += thisAmount
   }
-  result += `Amount owed is ${format(totalAmount / 100)}\n`
+  result += `Amount owed is ${usd(totalAmount)}\n`
   result += `You earned ${volumeCredits} credits\n`
   return result
 
@@ -58,5 +53,13 @@ export function statement(invoice, plays) {
     if ('comedy' === playFor(aPerformance).type)
       result += Math.floor(aPerformance.audience / 5)
     return result
+  }
+
+  function usd(aNumber) {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 2
+    }).format(aNumber / 100)
   }
 }
