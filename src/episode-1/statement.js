@@ -1,8 +1,13 @@
 export function statement(invoice, plays) {
   const statementData = {}
   statementData.customer = invoice.customer
-  statementData.performances = invoice.performances
-  return renderPlainText(statementData, invoice, plays)
+  statementData.performances = invoice.performances.map(enrichPerformance)
+  return renderPlainText(statementData, plays)
+
+  function enrichPerformance(aPerformance) {
+    const result = Object.assign({}, aPerformance)
+    return result
+  }
 }
 
 function renderPlainText(data, plays) {
