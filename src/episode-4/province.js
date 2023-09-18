@@ -41,7 +41,7 @@ class Province {
 
   // 不足分を計算する shortfall メソッド
   get shortfall() {
-    return this._demand - this.totalProduction * 2;
+    return this._demand - this.totalProduction;
   }
 
   // 利益を計算する profit メソッド
