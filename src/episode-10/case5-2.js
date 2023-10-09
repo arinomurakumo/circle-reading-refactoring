@@ -18,15 +18,19 @@ class Customer {
     // ...
   }
 
-  // Customerクラス に isUnknownプロパティを追加
-  get isUnknown() {
-    return false;
-  }
+  // 関数の抽出
+  // get isUnknown() {
+  //   return false;
+  // }
 }
 
-// isUnknownフィールド を持つ 特殊ケース用オブジェクトを作成
 function createUnknownCustomer() {
   return {
     isUnknown: true,
   };
+}
+
+// 特殊ケースの判定処理に 関数の抽出を行う
+function isUnknown(arg) {
+  return arg === "unknown";
 }

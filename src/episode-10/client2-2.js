@@ -1,4 +1,5 @@
 // client2
 
-const plan =
-  aCustomer === "unknown" ? registry.billingPlans.basic : aCustomer.billingPlan;
+const plan = isUnknown(aCustomer)
+  ? registry.billingPlans.basic
+  : aCustomer.billingPlan;
