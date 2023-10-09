@@ -9,7 +9,6 @@ function summerCharge() {
   return quantity * plan.summerRate;
 }
 
-// 新しい関数 に 抽出します。
 function regularCharge() {
   return quantity * plan.summerRate + plan.regularServiceCharge;
 }
