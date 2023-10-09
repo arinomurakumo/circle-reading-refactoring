@@ -6,9 +6,13 @@ const aCustomer = site.customer;
 // ... 大量のコードが入る ...
 
 let customerName;
-if (aCustomer === "unknown") customer.Name = "occupant";
+if (isUnknown(aCustomer)) customer.Name = "occupant";
 else customerName = aCustomer.name;
 
 function enrichSite(inputSite) {
   return _.cloneDeep(inputSite);
+}
+
+function isUnknown(aCustomer) {
+  return aCustomer === "unknown";
 }

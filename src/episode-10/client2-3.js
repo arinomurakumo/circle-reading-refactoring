@@ -1,6 +1,7 @@
 // client2
 
 const plan =
-  aCustomer === "unknown"
-    ? CustomElementRegistry.billingPlans.basic
+  aCustomer === isUnknown(aCustomer)
+    ? // typo修正
+      registry.billingPlans.basic
     : aCustomer.billingPlan;
