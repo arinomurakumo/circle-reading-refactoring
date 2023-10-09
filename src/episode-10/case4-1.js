@@ -18,7 +18,11 @@ function createBird(bird) {
   }
 }
 
-class EuropeanSwallow extends Bird {}
+class EuropeanSwallow extends Bird {
+  get plumage() {
+    return "avarage";
+  }
+}
 class AfricanSwallow extends Bird {}
 class NorwegianBlueParrot extends Bird {}
 
@@ -30,7 +34,7 @@ class Bird {
   get plumage() {
     switch (this.type) {
       case "EuropeanSwallow":
-        return "avarage";
+        throw "oops";
       case "AfricanSwallow":
         return bird.numberOfCoconuts > 2 ? "tired" : "avarage";
       case "NorwegianBlueParrot":
