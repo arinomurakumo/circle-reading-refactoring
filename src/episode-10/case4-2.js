@@ -57,6 +57,16 @@ class Rating {
   }
 }
 
+// バリエーションの振る舞いを格納するために、からのサブクラスを作成
+class ExperiencedChinaRating extends Rating {}
+
+// 必要な時にバリエーションを持ったインスタンスを返すファクトリ関数を作成
+function createRating(voyage, history) {
+  if (voyage.zone === "china" && history.some((v) => "china" === v.zone))
+    return new ExperiencedChinaRating(voyage, history);
+  else return new Rating(voyage, history);
+}
+
 // ** 呼び出し側のコード **
 const voyage = { zone: "west-indies", length: 10 };
 const history = [
