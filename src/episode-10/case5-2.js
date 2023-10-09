@@ -1,6 +1,8 @@
 class Site {
   get customer() {
-    return this._customer;
+    return this._customer === "unknown"
+      ? createUnknownCustomer()
+      : this._customer;
   }
 }
 
@@ -32,5 +34,5 @@ function createUnknownCustomer() {
 
 // 特殊ケースの判定処理に 関数の抽出を行う
 function isUnknown(arg) {
-  return arg === "unknown";
+  return arg.isUnknown;
 }
