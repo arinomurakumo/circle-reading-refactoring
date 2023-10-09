@@ -29,6 +29,8 @@ class Customer {
 function createUnknownCustomer() {
   return {
     isUnknown: true,
+    name: "occupant",
+    billingPlan: registry.billingPlans.basic,
   };
 }
 
