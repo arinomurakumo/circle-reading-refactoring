@@ -17,6 +17,12 @@ class Customer {
   }
 }
 
+class UnknownCustomer {
+  get name() {
+    return "occupant";
+  }
+}
+
 function isUnknown(arg) {
   if (!(arg instanceof Customer || arg instanceof UnknownCustomer))
     throw new Error(`不正な値について要調査: <${arg}>`);
