@@ -5,7 +5,7 @@ const site = enrichSite(rawSite);
 const aCustomer = site.customer;
 // ... 大量のコードが入る ...
 
-let customerName;
+const customerName = aCustomer.name;
 if (isUnknown(aCustomer)) customer.Name = "occupant";
 else customerName = aCustomer.name;
 
@@ -13,6 +13,11 @@ function enrichSite(aSite) {
   const result = _.cloneDeep(aSite);
   const unknownCustomer = {
     isUnknown: true,
+    name: "occupant",
+    billingPlan: CustomElementRegistry.billingPlan.basic,
+    paymentHistory: {
+      weeksDelinquentInLastYear: 0,
+    },
   };
 
   if (isUnknown(result.customer)) result.customer = unknownCustomer;
