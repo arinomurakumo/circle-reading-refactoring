@@ -31,7 +31,6 @@ class Rating {
     let result = 1;
     if (this.history.length < 5) result += 4;
     result += this.history.filter((v) => v.profit < 0).length;
-    if (this.voyage.zone === "china" && this.hasChinaHistory) result -= 2;
     return Math.max(result, 0);
   }
 
@@ -58,7 +57,12 @@ class Rating {
 }
 
 // バリエーションの振る舞いを格納するために、からのサブクラスを作成
-class ExperiencedChinaRating extends Rating {}
+class ExperiencedChinaRating extends Rating {
+  get captainHistoryRisk() {
+    const result = super.captainHistoryRisk - 2;
+    return Math.max(result, 0);
+  }
+}
 
 // 必要な時にバリエーションを持ったインスタンスを返すファクトリ関数を作成
 function createRating(voyage, history) {
