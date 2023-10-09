@@ -38,8 +38,9 @@ class NullPaymentHistory {
   }
 }
 
-function isUnknown(arg) {
-  if (!(arg instanceof Customer || arg instanceof UnknownCustomer))
-    throw new Error(`不正な値について要調査: <${arg}>`);
-  return arg.isUnknown;
-}
+// デッドコードの削除
+// function isUnknown(arg) {
+//   if (!(arg instanceof Customer || arg instanceof UnknownCustomer))
+//     throw new Error(`不正な値について要調査: <${arg}>`);
+//   return arg.isUnknown;
+// }
