@@ -1,3 +1,3 @@
 // client3
 
-if (aCustomer !== "unknown") aCustomer.billingPlan = newPlan;
+if (!isUnknown(aCustomer)) aCustomer.billingPlan = newPlan;
