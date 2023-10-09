@@ -1,5 +1,3 @@
 // client4
 
-const weeksDelinquent = isUnknown(aCustomer)
-  ? 0
-  : aCustomer.paymentHistory.weeksDelinquentInLastYear;
+const weeksDelinquent = aCustomer.paymentHistory.weeksDelinquentInLastYear;

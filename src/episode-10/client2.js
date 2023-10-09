@@ -1,5 +1,6 @@
 // client2
 
 const plan = isUnknown(aCustomer)
-  ? CustomElementRegistry.billingPlans.basic
+  ? // （typoの修正）
+    registry.billingPlans.basic
   : aCustomer.billingPlan;

@@ -21,6 +21,21 @@ class UnknownCustomer {
   get name() {
     return "occupant";
   }
+  get billingPlan() {
+    return registry.billingPlans.basic;
+  }
+  set billingPlan(arg) {
+    // 何もしない
+  }
+  get paymentHistory() {
+    return new NullPaymentHistory();
+  }
+}
+
+class NullPaymentHistory {
+  get weeksDelinquentInLastYear() {
+    return 0;
+  }
 }
 
 function isUnknown(arg) {
