@@ -23,8 +23,16 @@ class EuropeanSwallow extends Bird {
     return "avarage";
   }
 }
-class AfricanSwallow extends Bird {}
-class NorwegianBlueParrot extends Bird {}
+class AfricanSwallow extends Bird {
+  get plumage() {
+    return this.numberOfCoconuts > 2 ? "tired" : "avarage";
+  }
+}
+class NorwegianBlueParrot extends Bird {
+  get plumage() {
+    return this.bird.voltage > 100 ? "scorched" : "beautiful";
+  }
+}
 
 class Bird {
   constructor(birdObject) {
@@ -32,16 +40,7 @@ class Bird {
   }
 
   get plumage() {
-    switch (this.type) {
-      case "EuropeanSwallow":
-        throw "oops";
-      case "AfricanSwallow":
-        return bird.numberOfCoconuts > 2 ? "tired" : "avarage";
-      case "NorwegianBlueParrot":
-        return bird.voltage > 100 ? "scorched" : "beautiful";
-      default:
-        return "unknown";
-    }
+    return "unknown";
   }
 
   get airSpeedVelocity() {
