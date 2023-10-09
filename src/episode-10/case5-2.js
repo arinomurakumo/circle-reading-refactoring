@@ -31,6 +31,9 @@ function createUnknownCustomer() {
     isUnknown: true,
     name: "occupant",
     billingPlan: registry.billingPlans.basic,
+    paymentHistory: {
+      weeksDelinquentInLastYear: 0,
+    },
   };
 }
 
