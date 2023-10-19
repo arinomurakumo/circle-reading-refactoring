@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Acme Boston",
+    "location": "Malden MA",
+    // 場所についての詳細が続く
+    "customer": {
+      "name": "Acme Industories",
+      "billingPlan": "plan-451",
+      "paymentHistory": {
+        "weeksDelinquentInLastYear": 7
+        // さらに続く
+      }
+      // さらに続く
+    }
+  },
+  {
+    "name": "Warehouse Unit 15",
+    "location": "Malden MA",
+    // 場所についての詳細が続く
+    "customer": "unknown"
+  }
+]
